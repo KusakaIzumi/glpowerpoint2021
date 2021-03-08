@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href = "css/message.css" rel="stylesheet" media="all">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="./js/main.js"></script>
+    <title></title>
+
+</head>
+<body>
+
+  <form id="message_form" action="#">
+    <input id="input_msg" autocomplete="off" onkeyup="ShowLength(value);"/>
+    <p><span id="mozi_count"></span>文字<p>
+    <div id="target">
+      <img id="img1" width="320px" height="180px">
+      <div id = "circle"></div>
+    </div>
+    <p><span id="target_xy"></span> <p>
+
+    <input type="radio" name="hyouka" value="fukidashi_1" id="label_1">
+    <label for="label_1" class="label"><img src="./img/label_1.png"></label>
+
+    <input type="radio" name="hyouka" value="fukidashi_2" id="label_2">
+    <label for="label_2" class="label"><img src="./img/label_2.png"></label>
+
+    <input type="radio" name="hyouka" value="fukidashi_3" id="label_3">
+    <label for="label_3" class="label"><img src="./img/label_3.png"></label>
+
+    <input type="radio" name="hyouka" value="fukidashi_4" id="label_4">
+    <label for="label_4" class="label"><img src="./img/label_4.png"></label>
+
+    <input type="radio" name="hyouka" value="" id="label_5" checked="checked">
+    <label for="label_5" class="label">流れる</label>
+
+    </br></br></br><button>Send</button>
+  </form>
+  <form id="good_action" action="#">
+    <button>いいね</button>
+  </form>
+
+  <form class="form-horizontal" style="margin: 16px" role="form" method="get">
+      <div class="form-group">
+        <label class="control-label col-sm-2">選択肢</label>
+        <div class="input-group">
+          <button class="btn btn-default" type="button" onclick="like('a')">
+            <i></i> A
+          </button>
+          　
+          <button class="btn btn-default" type="button" onclick="like('b')">
+            <i></i> B
+          </button>
+          　
+          <button class="btn btn-default" type="button" onclick="like('c')">
+            <i></i> C
+          </button>
+          　
+          <button class="btn btn-default" type="button" onclick="like('d')">
+            <i></i> D
+          </button>
+　　　
+        </div>
+      </div>
+  </form>
+
+</body>
+</html>

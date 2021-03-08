@@ -1,0 +1,91 @@
+@charset "utf-8"
+
+
+.body{
+  width: 100%;
+  height: 100%;
+}
+
+#message_form{
+  text-align: center;
+  margin: 0 auto;
+  width: 320px;
+}
+
+#input_msg{
+  width: 250px;
+  height: 150px;
+}
+
+input[type=radio] {
+display: none; /* ラジオボタンを非表示にする */
+}
+input[type="radio"]:checked + label {
+background: #31A9EE;/* マウス選択時の背景色を指定する */
+color: #ffffff; /* マウス選択時のフォント色を指定する */
+}
+
+.label {
+  display: block; /* ブロックレベル要素化する */
+  float: left; /* 要素の左寄せ・回り込を指定する */
+  margin: 5px; /* ボックス外側の余白を指定する */
+  width: 40px; /* ボックスの横幅を指定する */
+  height: 45px; /* ボックスの高さを指定する */
+  padding-left: 5px; /* ボックス内左側の余白を指定する */
+  padding-right: 5px; /* ボックス内御右側の余白を指定する */
+  color: #b20000; /* フォントの色を指定 */
+  text-align: center; /* テキストのセンタリングを指定する */
+  line-height: 45px; /* 行の高さを指定する */
+  cursor: pointer; /* マウスカーソルの形（リンクカーソル）を指定する */
+  border: 2px solid #006DD9;/* ボックスの境界線を実線で指定する */
+  border-radius: 5px; /* 角丸を指定する */
+  font-size: 10px;
+}
+
+.label img{
+  padding-top: 2px;
+  width: 40px; /* ボックスの横幅を指定する */
+  height: 40px; /* ボックスの高さを指定する */
+}
+
+button{
+  width: 60px;
+  height: 30px;
+}
+
+#good_action{
+  text-align: center;
+  margin: 0 auto;
+  width: 200px;
+}
+
+#good_action button{
+  width: 200px;
+  height: 200px;
+  border-radius: 50px;
+}
+
+#target{
+  position: relative;
+  width: 320px;
+  height: 180px;
+  border: 2px solid #006DD9;/* ボックスの境界線を実線で指定する */
+}
+
+#circle{
+  position: absolute;
+  left: 90%;
+  top: 10%;
+  width: 5px;
+  height: 5px;
+  border: 2px solid #FF6666;/* ボックスの境界線を実線で指定する */
+  border-radius: 5px;
+  background-color: #FF6666;
+  transform: translate(-50%, -50%);
+}
+
+.form-horizontal{
+  text-align: center;
+  margin: 0 auto;
+
+}
