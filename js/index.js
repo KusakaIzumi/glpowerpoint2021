@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
     // サイズを指定
-    const width = 450;
+    const width = 500;
     const height = window.innerHeight;
     // レンダラーを作成
     const renderer_box = new THREE.WebGLRenderer({
@@ -34,7 +34,7 @@ function init() {
         function (gltf) {
             model = gltf.scene;
             // model.name = "model_with_cloth";
-            model.scale.set(180.0, 180.0, 180.0);
+            model.scale.set(200.0, 200.0, 200.0);
             model.position.set(1000, -700, 500);
             model.rotation.y = Math.PI * 1 / 3;
             scene_box.add(gltf.scene);
