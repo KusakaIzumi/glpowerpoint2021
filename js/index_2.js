@@ -1,12 +1,12 @@
-//window.addEventListener('DOMContentLoaded', init);
 var i = 0;
 var cnt = 1;
 var ac_count = 0;
 var max_acount = 1;
 var timer_index_2 = 0;
 
-window.onload = function () {
+window.addEventListener('DOMContentLoaded', flower);
 
+function flower() {
     function event() {
       cnt++;
       if(cnt == 2 && i > 0){
@@ -14,7 +14,7 @@ window.onload = function () {
         ac_count = 0;
         max_acount = 1;
         console.log('reset');
-        socket.emit('action_reset', {ac_count:0});
+        socket.emit('action_reset', {room:login_number ,ac_count:0});
 
         $('#canvas_1').hide('fast');
         $('#canvas_2').hide('fast');
@@ -29,18 +29,19 @@ window.onload = function () {
 
     socket.on('dataName1',(dataFromClient) =>{
       console.log(dataFromClient);
+      console.log(login_number);
       if(dataFromClient.ac_count > 1 && i < 1){
         ac_count = 1;
-        socket.emit('action_reset', {ac_count:1});
+        console.log('reset');
+        socket.emit('action_reset', {room:login_number ,ac_count:1});
       }
 
       ac_count++;
 
-      console.log("cnt" + cnt);
-
       if(cnt >= 1){
+        console.log(max_acount);
+        console.log(ac_count);
         if(ac_count == max_acount){
-          console.log("ac_count2");
           i++;
           max_acount += 2;
           cnt = 1;
@@ -49,7 +50,7 @@ window.onload = function () {
           // タイマー開始
           clearInterval(timer_index_2);
           timer_index_2 = setInterval(event, 20000);
-          init(); //オブジェクトの配置
+          flower_init(); //オブジェクトの配置
         }
       }
     });
@@ -57,7 +58,7 @@ window.onload = function () {
 
 const renderer_flowers = [];
 
-function init() {
+function flower_init() {
   // サイズを指定
   const width = 220;
   const height = 170;

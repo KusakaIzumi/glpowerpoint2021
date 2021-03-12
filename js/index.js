@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', init);
 function init() {
     // サイズを指定
     const width = 450;
-    const height = 450;
+    const height = window.innerHeight;
     // レンダラーを作成
     const renderer_box = new THREE.WebGLRenderer({
         canvas: document.querySelector('#canvas_box'),
@@ -19,17 +19,14 @@ function init() {
 
     // カメラを作成
     camera_box = new THREE.PerspectiveCamera(45, width / height, 1, 10000);
-    camera_box.position.set(30, 200, -3500);
+    camera_box.position.set(1000, -1000, 1000);
 
     const controls = new THREE.OrbitControls(camera_box, renderer_box.domElement);
 
-    var directionalLight = new THREE.DirectionalLight(0xFFFFFF, 1.0); // 光源色と光強度を指定して生成
-    directionalLight.position.set(30, 200, 70); // 光源位置を設定
-    scene_box.add(directionalLight); // シーンに追加
 
     // Load GLTF or GLB
     const loader = new THREE.GLTFLoader();
-    const url = 'glb/rippou.glb';
+    const url = 'glb/sakura.glb';
 
     let model = null;
     loader.load(
@@ -37,8 +34,8 @@ function init() {
         function (gltf) {
             model = gltf.scene;
             // model.name = "model_with_cloth";
-            model.scale.set(400.0, 400.0, 400.0);
-            model.position.set(0, -400, 0);
+            model.scale.set(180.0, 180.0, 180.0);
+            model.position.set(1000, -700, 500);
             model.rotation.y = Math.PI * 1 / 3;
             scene_box.add(gltf.scene);
 

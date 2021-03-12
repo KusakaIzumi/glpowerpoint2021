@@ -112,28 +112,34 @@ io.sockets.on('connection', function (socket) {
   //クライアントへidの付与
   io.to(socket.id).emit("token", {token:token});
 
+  //room番号
+  socket.on('room_conect',(room) =>{
+    socket.join(room);
+    io.to(room).emit('room_conect_message', room);
+  });
+
   //接続元のクライアント以外にデータ送信
   //socket.broadcast.emit('dataName1', dataToClient);
   socket.on('message',(msg) =>{
     console.log('message: ' + msg);
-    io.emit('message', msg);
+    io.to(msg.room).emit('message', msg);
   });
 
   //高評価のデータ送受信
   socket.on('dataName1',(dataFromClient) =>{
     //接続元のクライアントだけにデータ送信。
-    console.log('OK');
-    io.emit('dataName1', dataFromClient);
+    console.log(dataFromClient);
+    io.to(dataFromClient.room).emit('dataName1', dataFromClient);
   });
 
   //
   socket.on('from_main',(up_image) =>{
-    io.emit('from_main', up_image);
+    io.to(up_image.room).emit('from_main', up_image);
   });
 
   //
   socket.on('action_reset',(reset) =>{
-    io.emit('action_reset', reset);
+    io.to(reset.room).emit('action_reset', reset);
   });
 
   //グラフのデータ受送信
@@ -158,7 +164,7 @@ io.sockets.on('connection', function (socket) {
       console.log(a);
     }
     var chart_cnt = [[a],[b],[c],[d]]
-    io.emit('Chart', chart_cnt);
+    io.to(chart_value.room).emit('Chart', chart_cnt);
   });
 });
 

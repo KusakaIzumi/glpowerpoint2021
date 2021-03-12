@@ -11,10 +11,32 @@ if (typeof(io) != 'undefined') {
   };
 }
 
+
 var fukidashi_count = 0;
 var id = 0;
+var login_number = 0;
+var slide_number = 0;
 
 $(function(){
+
+  //ログイン
+  $('#login').submit(function(){
+    login_number = $('#login_number').val();
+    console.log(login_number);
+    if( login_number != "" ){
+      socket.emit('room_conect', login_number);
+      slide_number = $('#slide_input').val();
+      const slide = document.getElementById("slide");
+      slide.innerHTML = slide_number;
+    }
+
+    return false;
+  });
+
+  socket.on('room_conect_message',(room) =>{
+    console.log(room);
+  });
+  ///////
 
   socket.on('message',function(msg){
 

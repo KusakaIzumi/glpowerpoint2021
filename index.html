@@ -3,14 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
     <link href = "css/message.css" rel="stylesheet" media="all">
+    <link href = "./css/load.css" rel="stylesheet">
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script src="./js/main.js"></script>
     <title></title>
+    <script>
 
+       window.onload = function() {       
+         var popup = document.getElementById('js-popup');
+         if(!popup) return;
+         popup.classList.add('is-show');
+
+         var closeBtn = document.getElementById('js-close-btn');
+
+         document.getElementById('js-close-btn').onclick = function(){
+           closePopUp(closeBtn);
+         }
+       }
+
+       function closePopUp(elem) {
+         var login_number = $('#login_number').val();
+         var flag = 0;
+         var popup = document.getElementById('js-popup');
+         if( login_number == "" ){
+           flag = 1;
+         }
+         console.log(login_number);
+         if(flag == 1){
+           return;
+         }else{
+           popup.classList.remove('is-show');
+         }
+       }
+
+
+    </script>
 </head>
 <body>
+  <!-- //ログイン画面 -->
+  <div class="popup" id="js-popup">
+    <div class="popup-inner">
+      <form id="login">
+        <input id="login_number" type="number"　autocomplete="off" required/>
+        <button id="js-close-btn">Send</button>
+      </form>
+    </div>
+    <div class="black-background" id="js-black-bg"></div>
+  </div>
+  <!-- //////////// -->
 
   <form id="message_form" action="#">
     <input id="input_msg" autocomplete="off" onkeyup="ShowLength(value);"/>

@@ -119,9 +119,23 @@ function ShowLength( str ) {
    var mozi_count = str.length;
 }
 
-
+var login_number = 0;
 
 $(function(){
+
+    //ログイン
+    $('#login').submit(function(){
+      login_number = $('#login_number').val();
+      socket.emit('room_conect', login_number);
+      console.log(login_number);
+      return false;
+    });
+
+    socket.on('room_conect_message',(room) =>{
+      console.log(room);
+    });
+    ///////
+
     $('#message_form').submit(function(){
       var element = document.getElementById( "message_form" ) ;
       var radioNodeList = element.hyouka;
@@ -131,7 +145,7 @@ $(function(){
 
       console.log(x);
 
-      socket.emit('message', {msg:$('#input_msg').val(), syurui:radioValue, count:mozi_count, x:x, y:y });
+      socket.emit('message', {room:login_number ,msg:$('#input_msg').val(), syurui:radioValue, count:mozi_count, x:x, y:y});
 
       $('#input_msg').val('');
       return false;
@@ -142,7 +156,8 @@ $(function(){
     var action_count = 0;
     $('#good_action').submit(function(){
       action_count++;
-      socket.emit('dataName1', {ac_count:action_count, id:IAM.token});
+      console.log(action_count);
+      socket.emit('dataName1', {room:login_number ,ac_count:action_count, id:IAM.token});
       return false;
     });
 
@@ -157,7 +172,7 @@ $(function(){
 });
 
 function like (type) {
-  socket.emit('Chart', {chart_value:type});
+  socket.emit('Chart', {room:login_number ,chart_value:type});
   window.location.href = './index_4.html'; // 通常の遷移
   return false;
 }
