@@ -115,7 +115,7 @@ function clickPosition(event) {
 }
 
 function ShowLength( str ) {
-   document.getElementById("mozi_count").innerHTML = str.length + "文字";
+   document.getElementById("mozi_count").innerHTML = str.length;
    var mozi_count = str.length;
 }
 

@@ -122,7 +122,7 @@ iframe{
 }
 
 .box{
-  max-height: 200px;
+  height: 210px;
   position: fixed;
   z-index: 100;
   display: flex;
@@ -168,10 +168,6 @@ iframe{
   font-size: 30px;
 }
 
-.fukidashi{
-
-}
-
 .arrow_box{
   display: flex;
   -ms-writing-mode: tb-rl;
@@ -189,7 +185,7 @@ iframe{
   border-radius:40px;
   -webkit-border-radius:40px;
   -moz-border-radius:40px;
-  max-height: 200px;
+  height: 210px;
   word-break : break-all;
 
 }
@@ -248,7 +244,7 @@ iframe{
   background-image: radial-gradient(#fff 50%, transparent 70%);
   color: #000;
   font-size: 30px;
-  max-height: 200px;
+  max-height: 210px;
   word-break: break-all;
 }
 
@@ -290,6 +286,7 @@ iframe{
   border-radius:40px;
   -webkit-border-radius:40px;
   -moz-border-radius:40px;
+  height: 210px;
 }
 .balloon:after,.balloon:before{
   border: solid transparent;
