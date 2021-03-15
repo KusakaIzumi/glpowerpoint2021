@@ -11,6 +11,9 @@ if (typeof(io) != 'undefined') {
   };
 }
 
+var ipadress = 0;
+
+
 //自分自身の情報を入れる
 const IAM = {
   token: null,  // トークン
@@ -145,7 +148,7 @@ $(function(){
 
       console.log(x);
 
-      socket.emit('message', {room:login_number ,msg:$('#input_msg').val(), syurui:radioValue, count:mozi_count, x:x, y:y});
+      socket.emit('message', {room:login_number ,ip_adress:ipadress ,msg:$('#input_msg').val(), syurui:radioValue, count:mozi_count, x:x, y:y});
 
       $('#input_msg').val('');
       return false;

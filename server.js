@@ -106,6 +106,8 @@ var d = 0;
 
 // サーバーへのアクセスを監視。アクセスがあったらコールバックが実行
 io.sockets.on('connection', function (socket) {
+  var address = socket.handshake.address;
+
   console.log("ユーザーが接続しました");
 
   const token = makeToken(socket.id);
@@ -121,6 +123,7 @@ io.sockets.on('connection', function (socket) {
   //接続元のクライアント以外にデータ送信
   //socket.broadcast.emit('dataName1', dataToClient);
   socket.on('message',(msg) =>{
+    msg.ipadress = address;
     console.log('message: ' + msg);
     io.to(msg.room).emit('message', msg);
   });

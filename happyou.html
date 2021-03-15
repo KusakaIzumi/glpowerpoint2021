@@ -90,7 +90,7 @@
     </div>
 
     <ul id="comment">
-      <!-- <li class="coment_keyfram">うううううううううううう</li> -->
+      <!-- <li class="comment_keyfram">うううううううううううう</li> -->
     </ul>
 
     <p id="slide">
@@ -106,12 +106,13 @@
       <i></i> start
     </button>
 
-    <div class="chart">
+    <!-- 投票機能 -->
+    <!-- <div class="chart">
       <div class="chart_body">
         <canvas id="myChart_1"></canvas>
         <input type="button" value="Reset" onclick="reset()">
       </div>
-    </div>
+    </div> -->
 
     <script>//画像ダウンロード
     const startCapturingButton = document.getElementById("start-capturing");
@@ -161,35 +162,57 @@
 
     document.getElementById("fukidashi_1").onclick = function() {
       var fukidashi_1 = document.getElementById("fukidashi_1");
-      var timer_stop = fukidashi_1.value;
-      console.log(timer_stop);
-      clearTimeout(timer_stop);
-      id = setTimeout(close , timer, 'fukidashi_1');
-      fukidashi_1.value = id;
+      //コメントを非表示に
+      fukidashi_1.style.display ="none";
+
+      ////コメント表示の延長
+      // var timer_stop = fukidashi_1.value;
+      // console.log(timer_stop);
+      // clearTimeout(timer_stop);
+      // id = setTimeout(close , timer, 'fukidashi_1');
+      // fukidashi_1.value = id;
     };
     document.getElementById("fukidashi_2").onclick = function() {
       var fukidashi_2 = document.getElementById("fukidashi_2");
-      var timer_stop = fukidashi_2.value;
-      console.log(timer_stop);
-      clearTimeout(timer_stop);
-      id = setTimeout(close , timer, 'fukidashi_2');
-      fukidashi_2.value = id;
+      //コメントを非表示に
+      fukidashi_2.style.display ="none";
+
+    ////コメント表示の延長
+    //   var timer_stop = fukidashi_2.value;
+    //   console.log(timer_stop);
+    //   clearTimeout(timer_stop);
+    //   id = setTimeout(close , timer, 'fukidashi_2');
+    //   fukidashi_2.value = id;
     };
     document.getElementById("fukidashi_3").onclick = function() {
       var fukidashi_3 = document.getElementById("fukidashi_3");
-      var timer_stop = fukidashi_3.value;
-      console.log(timer_stop);
-      clearTimeout(timer_stop);
-      id = setTimeout(close , timer, 'fukidashi_3');
-      fukidashi_3.value = id;
+      //コメントを非表示に
+      fukidashi_3.style.display ="none";
+
+      ////コメント表示の延長
+      // var timer_stop = fukidashi_3.value;
+      // console.log(timer_stop);
+      // clearTimeout(timer_stop);
+      // id = setTimeout(close , timer, 'fukidashi_3');
+      // fukidashi_3.value = id;
     };
     document.getElementById("fukidashi_4").onclick = function() {
       var fukidashi_4 = document.getElementById("fukidashi_4");
-      var timer_stop = fukidashi_4.value;
-      console.log(timer_stop);
-      clearTimeout(timer_stop);
-      id = setTimeout(close , timer, 'fukidashi_4');
-      fukidashi_4.value = id;
+      //コメントを非表示に
+      fukidashi_4.style.display ="none";
+
+      ////コメント表示の延長
+      // var timer_stop = fukidashi_4.value;
+      // console.log(timer_stop);
+      // clearTimeout(timer_stop);
+      // id = setTimeout(close , timer, 'fukidashi_4');
+      // fukidashi_4.value = id;
+    };
+
+    document.getElementById("fukidashi_4").onclick = function() {
+      var comment_5 = document.getElementById("comment_keyfram");
+      //コメントを非表示に
+      comment_5.style.display ="none";
     };
 
     //アンケート機能
