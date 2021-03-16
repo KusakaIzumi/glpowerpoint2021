@@ -106,7 +106,10 @@ var d = 0;
 
 // サーバーへのアクセスを監視。アクセスがあったらコールバックが実行
 io.sockets.on('connection', function (socket) {
-  var address = socket.handshake.address;
+  const remoteAddress = socket.request.connection.remoteAddress;
+  const splittedAddress = remoteAddress.split(':');
+  const address = splittedAddress[splittedAddress.length - 1];
+
 
   console.log("ユーザーが接続しました");
 
