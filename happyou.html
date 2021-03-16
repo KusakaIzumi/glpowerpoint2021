@@ -209,8 +209,8 @@
       // fukidashi_4.value = id;
     };
 
-    document.getElementById("comment_keyfram").onclick = function() {
-      var comment_5 = document.getElementById("comment_keyfram");
+    function comment_keyfram(comment_5_number){
+      var comment_5 = document.getElementById("comment_keyfram_" + comment_5_number);
       //コメントを非表示に
       comment_5.style.display ="none";
     };

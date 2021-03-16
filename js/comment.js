@@ -18,6 +18,7 @@ var login_number = 0;
 var slide_number = 0;
 
 $(function(){
+  var comment_5_number = 0;
 
   //ログイン
   $('#login').submit(function(){
@@ -68,9 +69,10 @@ $(function(){
       }
     }else{
       if(msg.count > 0){
+        comment_5_number++;
         var commnt_top = Math.random() * 100;
         var comment = document.getElementById('comment');
-        comment.insertAdjacentHTML('afterbegin','<li class="comment_keyfram" style="top:' + Math.round(commnt_top) + '%;">'+ msg.msg +'</li>');
+        comment.insertAdjacentHTML('afterbegin','<li class="comment_keyfram_' + comment_5_number + ' style="top:' + Math.round(commnt_top) + '%;">'+ msg.msg +'</li>');
       }
     }
   });
