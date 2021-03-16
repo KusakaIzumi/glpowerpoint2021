@@ -72,7 +72,7 @@ $(function(){
         comment_5_number++;
         var commnt_top = Math.random() * 100;
         var comment = document.getElementById('comment');
-        comment.insertAdjacentHTML('afterbegin','<li class="comment_keyfram_' + comment_5_number + ' style="top:' + Math.round(commnt_top) + '%;">'+ msg.msg +'</li>');
+        comment.insertAdjacentHTML('afterbegin','<li class="comment_keyfram" id="comment_keyfram_'+ comment_5_number + '" style="top:' + Math.round(commnt_top) + '%; onclick = "comment_keyfram(' + comment_5_number + ')">'+ msg.msg +'</li>');
       }
     }
   });
