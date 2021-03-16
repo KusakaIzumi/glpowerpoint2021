@@ -42,7 +42,7 @@ $(function(){
 
     var timer = msg.count * 3000;
 
-    console.log(msg.ipadress);
+    console.log("comment:" + msg.msg + ",  ip:" + msg.ipadress);
 
     if( document.getElementById(msg.syurui) != null ){
       if(document.getElementById(msg.syurui).style.display == "block" && msg.count > 0){
