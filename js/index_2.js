@@ -23,7 +23,7 @@ function flower() {
         $('#canvas_5').hide('fast');
         $('#canvas_6').hide('fast');
         $('#canvas_7').hide('fast');
-        del(); //オブジェクトの削除
+        // del(); //オブジェクトの削除
       }
     }
 

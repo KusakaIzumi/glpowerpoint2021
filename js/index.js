@@ -1,5 +1,3 @@
-window.addEventListener('DOMContentLoaded', init);
-
 function init() {
     // サイズを指定
     const width = 500;

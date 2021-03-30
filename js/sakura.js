@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+function cherry_animation(){
   // コンテナを指定
   const section = document.querySelector('.cherry-blossom-container');
 
@@ -22,4 +22,4 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // 花びらを生成する間隔をミリ秒で指定
   setInterval(createPetal, 300);
-});
+}
