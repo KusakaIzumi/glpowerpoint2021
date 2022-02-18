@@ -137,7 +137,11 @@ $(function(){
     socket.on('room_conect_message',(room) =>{
       console.log(room);
     });
-    ///////
+
+    socket.on('reconnecting',function(){
+      console.log('reconnecting');
+      window.location = location.origin;
+    });
 
     $('#message_form').submit(function(){
       var element = document.getElementById( "message_form" ) ;

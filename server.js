@@ -117,6 +117,11 @@ io.sockets.on('connection', function (socket) {
   //クライアントへidの付与
   io.to(socket.id).emit("token", {token:token});
 
+  //セッションが切れていた場合
+  socket.on('disconnect', (room) => {
+    socket.join(room);
+  });
+
   //room番号
   socket.on('room_conect',(room) =>{
     socket.join(room);
