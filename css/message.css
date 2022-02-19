@@ -12,6 +12,27 @@
   width: 320px;
 }
 
+.reaction_button{
+  color: #31A9EE;
+  background-color: #31A9EE;
+  border: none;
+  margin: 0 auto;
+  width: 40px;
+  font-size: 20px;
+  border-radius: 50%;
+  line-height: 35px;
+  padding: 0;
+  -webkit-box-shadow: 0 5px 0 #3a82ab;
+  box-shadow: 0 5px 0 #3a82ab;
+}
+
+.reaction_button:hover {
+  -webkit-transform: translate(0, 3px);
+  transform: translate(0, 3px);
+  -webkit-box-shadow: 0 2px 0 #3a82ab;
+  box-shadow: 0 2px 0 #3a82ab;
+}
+
 #input_msg{
   width: 250px;
   height: 150px;

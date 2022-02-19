@@ -36,6 +36,10 @@
            console.log(form_horizontal_none);
            var form_horizontal_none = document.getElementsByClassName("form-horizontal")
            form_horizontal_none[0].style.display = "none";
+           var reaction = document.getElementsByClassName("reaction_button")
+           reaction[0].style.display = "none";
+           reaction[1].style.display = "none";
+           reaction[2].style.display = "none";
          }
 
          if(flag == 1){
@@ -44,7 +48,6 @@
            popup.classList.remove('is-show');
          }
        }
-
 
     </script>
 </head>
@@ -63,6 +66,12 @@
 
   <form id="message_form" action="#">
     <input id="input_msg" autocomplete="off" onkeyup="ShowLength(value);"/>
+    <p>
+      <input type="button" value=&#128516; id="smileButton" class="reaction_button" onclick="OnSmileButton()"></input>
+      <input type="button" value=&#x1F338; id="sakuraButton" class="reaction_button" onclick="OnSakuraButton()"></input>
+      <input type="button" value=&#x1f389; id="crackerButton" class="reaction_button" onclick="OnCrackerButton()"></input>
+    </p>
+
     <p><span id="mozi_count"></span>文字<p>
     <div id="target">
       <img id="img1" width="320px" height="180px">

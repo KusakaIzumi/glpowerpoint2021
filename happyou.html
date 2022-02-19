@@ -126,7 +126,7 @@
       videoContainer.innerHTML = '';
       if (captureStream) {
         const video = document.createElement("video");
-        //video.autoplay = true;
+        video.autoplay = true;
         video.srcObject = captureStream;
         videoContainer.appendChild(video);
         var id_capture = setInterval(asyncCall, 5000);

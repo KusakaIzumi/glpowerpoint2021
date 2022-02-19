@@ -144,7 +144,7 @@ $(function(){
     });
 
     $('#message_form').submit(function(){
-      var element = document.getElementById( "message_form" ) ;
+      var element = document.getElementById("message_form") ;
       var radioNodeList = element.hyouka;
       var radioValue = radioNodeList.value;
       var input = document.getElementById("input_msg")
@@ -182,4 +182,21 @@ function like (type) {
   socket.emit('Chart', {room:login_number ,chart_value:type});
   window.location.href = './index_4.html'; // 通常の遷移
   return false;
+}
+
+function OnSmileButton(){
+    console.log("aiueo");
+    var input = document.getElementById("input_msg")
+    input.value += document.getElementById("smileButton").value;
+}
+
+function OnSakuraButton(){
+    console.log("aiueo");
+    var input = document.getElementById("input_msg")
+    input.value += document.getElementById("sakuraButton").value;
+}
+
+function OnCrackerButton(){
+    var input = document.getElementById("input_msg")
+    input.value += document.getElementById("crackerButton").value;
 }
