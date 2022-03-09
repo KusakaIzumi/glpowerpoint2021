@@ -6,6 +6,30 @@
   height: 100%;
 }
 
+.messafe_space{
+  top: 10px;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  padding: 0em 0.5em;
+  border: solid 3px #95ccff;
+  border-radius: 8px;
+  width: 320px;
+}
+
+.coment_question{
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 19px;
+  background: #FFF;
+  color: #95ccff;
+  font-weight: bold;
+}
+
 #message_form{
   text-align: center;
   margin: 0 auto;
@@ -74,20 +98,21 @@ color: #ffffff; /* マウス選択時のフォント色を指定する */
   height: 40px; /* ボックスの高さを指定する */
 }
 
-button{
-  width: 60px;
-  height: 30px;
+#send_button{
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
 }
 
 #good_action{
   text-align: center;
-  margin: 0 auto;
+  margin: 10px auto;
   width: 200px;
 }
 
 #good_action button{
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 50px;
 }
 
