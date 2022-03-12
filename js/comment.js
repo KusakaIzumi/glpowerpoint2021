@@ -32,8 +32,8 @@ $(function(){
       let url = document.getElementById("example1").contentWindow.location.href
       console.log("現在のiframeのURLは", url);
       var presentation = SlidesApp.openByUrl(url);
-      var slide = presentation.getSlides()[0];
-      var shapes = slide.getShapes();
+      getSlide = presentation.getSlides()[0];
+      var shapes = getSlide.getShapes();
       console.log("シェイプの個数: %s",shapes.length);
     }
 
