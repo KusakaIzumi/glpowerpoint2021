@@ -29,12 +29,6 @@ $(function(){
       slide_number = $('#slide_input').val();
       const slide = document.getElementById("slide");
       slide.innerHTML = slide_number;
-      let url = document.getElementsByTagName("iframe")[0].src;
-      console.log("現在のiframeのURLは", url);
-      //var presentation = SlidesApp.openByUrl(url);
-      // getSlide = presentation.getSlides()[0];
-      // var shapes = getSlide.getShapes();
-      // console.log("シェイプの個数: %s",shapes.length);
     }
 
     return false;
