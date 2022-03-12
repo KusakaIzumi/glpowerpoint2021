@@ -1,5 +1,7 @@
 @charset "utf-8"
-
+p{
+  margin: 0;
+}
 
 .body{
   width: 100%;
@@ -73,6 +75,11 @@ display: none; /* ラジオボタンを非表示にする */
 input[type="radio"]:checked + label {
 background: #31A9EE;/* マウス選択時の背景色を指定する */
 color: #ffffff; /* マウス選択時のフォント色を指定する */
+}
+
+#mozi_count{
+  margin: 1px, auto;
+  padding: 0px, 0px;
 }
 
 .label {

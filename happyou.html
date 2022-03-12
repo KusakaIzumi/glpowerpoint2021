@@ -102,9 +102,9 @@
       <div id="screenshot">
       </div>
     </div>
-    <button id="start-capturing" type="button">
+    <!-- <button id="start-capturing" type="button">
       <i></i> start
-    </button>
+    </button> -->
 
     <!-- 投票機能 -->
     <div class="chart">
@@ -115,46 +115,46 @@
     </div>
 
     <script>//画像ダウンロード
-    const startCapturingButton = document.getElementById("start-capturing");
-    const takeScreenshotsButton = document.getElementById("take-screenshots");
-    const videoContainer = document.getElementById("capture-stream");
-    const canvasContainer = document.getElementById("screenshot");
-
-    let captureStream = null;
-    startCapturingButton.addEventListener('click', async () => {
-      captureStream = await navigator.mediaDevices.getDisplayMedia({audio: false, video: { width: 480, height: 270 }});
-      videoContainer.innerHTML = '';
-      if (captureStream) {
-        const video = document.createElement("video");
-        video.autoplay = true;
-        video.srcObject = captureStream;
-        videoContainer.appendChild(video);
-        var id_capture = setInterval(asyncCall, 5000);
-      }
-      captureStream.getTracks()[0].addEventListener('ended', () => {
-        clearInterval(id_capture);
-      });
-    });
-
-    async function asyncCall() {
-      const videoTrack = captureStream.getVideoTracks()[0];
-
-      const imageCapture = new ImageCapture(videoTrack);
-      const imageBitmap = await imageCapture.grabFrame();
-
-      canvasContainer.innerHTML = '';
-      const canvas = document.createElement("canvas");
-      canvas.width = imageBitmap.width;
-      canvas.height = imageBitmap.height;
-      canvas.getContext('2d').drawImage(imageBitmap, 0, 0);
-      canvasContainer.appendChild(canvas);
-
-      //pngダウンロード
-      var up_image = canvas.toDataURL("image/png");
-      // console.log(up_image);
-
-      socket.emit('from_main', {room:login_number ,up_image:up_image});
-    }
+    // const startCapturingButton = document.getElementById("start-capturing");
+    // const takeScreenshotsButton = document.getElementById("take-screenshots");
+    // const videoContainer = document.getElementById("capture-stream");
+    // const canvasContainer = document.getElementById("screenshot");
+    //
+    // let captureStream = null;
+    // startCapturingButton.addEventListener('click', async () => {
+    //   captureStream = await navigator.mediaDevices.getDisplayMedia({audio: false, video: { width: 480, height: 270 }});
+    //   videoContainer.innerHTML = '';
+    //   if (captureStream) {
+    //     const video = document.createElement("video");
+    //     video.autoplay = true;
+    //     video.srcObject = captureStream;
+    //     videoContainer.appendChild(video);
+    //     var id_capture = setInterval(asyncCall, 5000);
+    //   }
+    //   captureStream.getTracks()[0].addEventListener('ended', () => {
+    //     clearInterval(id_capture);
+    //   });
+    // });
+    //
+    // async function asyncCall() {
+    //   const videoTrack = captureStream.getVideoTracks()[0];
+    //
+    //   const imageCapture = new ImageCapture(videoTrack);
+    //   const imageBitmap = await imageCapture.grabFrame();
+    //
+    //   canvasContainer.innerHTML = '';
+    //   const canvas = document.createElement("canvas");
+    //   canvas.width = imageBitmap.width;
+    //   canvas.height = imageBitmap.height;
+    //   canvas.getContext('2d').drawImage(imageBitmap, 0, 0);
+    //   canvasContainer.appendChild(canvas);
+    //
+    //   //pngダウンロード
+    //   var up_image = canvas.toDataURL("image/png");
+    //   // console.log(up_image);
+    //
+    //   socket.emit('from_main', {room:login_number ,up_image:up_image});
+    // }
 
     //吹き出しの表示時間を延長（吹き出しクリック時に）
 
