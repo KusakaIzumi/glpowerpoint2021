@@ -12,7 +12,6 @@
                 <label id="closeWindow" for="trigger"></label>
                 <label id="popupTrigger" for="trigger"></label>
                 <label for="trigger" class="close">�~</label>
-                <img src="./help.jpg" id="helpIframe" />
             </div>
     </div>
 
@@ -86,7 +85,7 @@
         var iframeDoc = document.getElementsByTagName('iframe');
         if (iframeDoc[0]) {
             iframeDoc[0].addEventListener("load", function () {
-                let url = iframeDoc[0].contentWindow.location.href;
+                //let url = iframeDoc[0].contentWindow.location.href;
                 url = "fda";
                 console.log(url);
             });
