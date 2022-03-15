@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+</head>
+<body>
+
+    <label id="helpMark" for="trigger">?</label>
+
+    <div class="helpPopUp">
+        <input id="trigger" type="checkbox" class="triggerCheck">
+            <div id="helpWindow">
+                <label id="closeWindow" for="trigger"></label>
+                <label id="popupTrigger" for="trigger"></label>
+                <label for="trigger" class="close">�~</label>
+                <img src="./help.jpg" id="helpIframe" />
+            </div>
+    </div>
+
+    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vTaFDVqkwpGe6LInxiTcyPmxhF6NzivmDKMFme-6biWI4rJhj5a4psnELaQF16aiR7rSLE5tnvhAgbI/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+
+
+    <style>
+        #helpMark{
+            font-size:100px;
+            display: block;
+            text-align: right;
+            width: 100%;
+            margin: 0;
+        }
+
+        .triggerCheck{
+            display:none;
+        }
+
+        #closeWindow{
+            z-index:1;
+            position:absolute;
+            height:100%;
+            width: 100%;
+            left:0;
+            top:0;
+        }
+
+        .close{
+            font-size: 120px;
+            position:absolute;
+            z-index: 100;
+        }
+
+        #helpWindow{
+            animation-name:fadeIn;
+            animation-duration:0.5s;
+            animation-fill-mode:forwards;
+            opacity:0;
+            display:none;
+            width:100%;
+            height:100%;
+            position: fixed;
+            top: 0%;
+            text-align:center;
+        }
+
+        @keyframes fadeIn { /*animation-name�Őݒ肵���l������*/
+
+          0% {opacity: 0} /*�A�j���[�V�����J�n���͕s�����x0%*/
+
+          100% {opacity: 1} /*�A�j���[�V�����I�����͕s�����x100%*/
+
+        }
+
+        #helpIframe {
+            position: relative;
+            max-height:80%;
+            max-width: 80%;
+            top:10%;
+            z-index:10;
+        }
+
+        .helpPopUp input[type=checkbox]:checked ~ #helpWindow{
+            display: block;
+            opacity:1;
+        }
+    </style>
+
+    <script>
+        var iframeDoc = document.getElementsByTagName('iframe');
+        if (iframeDoc[0]) {
+            iframeDoc[0].addEventListener("load", function () {
+                let url = iframeDoc[0].contentWindow.location.href;
+                url = "fda";
+                console.log(url);
+            });
+        }
+
+
+        function frameCSS(id) {
+            if (document.getElementById(id)) {
+                var doc = document.getElementById(id);
+                var helpDoc = doc.contentWindow.document;
+                var myH = 100;
+                if (document.all) {
+                    myH = helpDoc.scrollHeight;
+                } else {
+                    myH = helpDoc.offsetHeight;
+                }
+                helpDoc.style.height = myH + "px";
+            }
+        }
+    </script>
+</body>
+</html>
