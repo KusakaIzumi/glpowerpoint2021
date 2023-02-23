@@ -3,6 +3,7 @@ var cnt = 1;
 var ac_count = 0;
 var max_acount = 1;
 var timer_index_2 = 0;
+var url = null;
 
 window.addEventListener('DOMContentLoaded', flower);
 

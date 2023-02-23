@@ -32,6 +32,21 @@
         		loader.fadeOut();
         	},3000);
         });
+
+        // function iframeLoad(){
+        //   var iframes = document.querySelectorAll("iframe");
+        //   console.log(iframes);
+        //   // iframes[0].onload = function() {
+        //   //     console.log(this.src);
+        //   //     url = this.src;
+        //   // };
+        //   iframes[i].addEventListener('click', (function (element) {
+        //     return function () {
+        //       console.log(iframes);
+        //     };
+        //   })(iframes[i]), false);
+        // }
+
      </script>
 
   </head>
@@ -91,7 +106,8 @@
       <!-- <li class="comment_keyfram">うううううううううううう</li> -->
     </ul>
 
-    <p id="slide"></p>
+    <p id="slide">
+    </p>
 
     <div class="results">
       <div id="capture-stream">
@@ -112,11 +128,6 @@
     </div>
 
     <script>//画像ダウンロード
-    // var iframeDocument = document.getElementsByTagName("iframe")[0];
-    // let url = iframeDocument.src;
-    // console.log("現在のiframeのURLは", url);
-    // var presentation = iframeDocument.SlidesApp.getActivePresentation();
-
 
     // getSlide = presentation.getSlides()[0];
     // var shapes = getSlide.getShapes();
@@ -240,6 +251,7 @@
 
     window.onload = function() {
       popup.classList.add('is-show');
+      iframeLoad();
     }
 
     document.getElementById('js-close-btn').onclick = function(){
