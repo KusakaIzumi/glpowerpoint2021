@@ -12,12 +12,13 @@
      <script src="/socket.io/socket.io.js"></script>
      <script src="./js/comment.js"></script>
      <script src="./js/index.js"></script>
-     <!-- <script src="./js/index_1.js"></script> -->
+     <script src="./js/index_1.js"></script>
      <script src="./js/index_2.js"></script>
      <script src="./js/sakura.js"></script>
      <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
      <link href = "./css/base.css" rel="stylesheet">
      <link href = "./css/load.css" rel="stylesheet">
+
      <script>
        $(function(){
         	var loader = $('.loader-wrap');
@@ -46,7 +47,6 @@
         //     };
         //   })(iframes[i]), false);
         // }
-
      </script>
 
   </head>
@@ -115,9 +115,9 @@
       <div id="screenshot">
       </div>
     </div>
-    <!-- <button id="start-capturing" type="button">
-      <i></i> start
-    </button> -->
+    <!-- <button id="start-capturing" type="button"> -->
+      <!-- <i></i> start -->
+    </button>
 
     <!-- 投票機能 -->
     <div class="chart">
@@ -133,8 +133,10 @@
     // var shapes = getSlide.getShapes();
     // console.log("シェイプの個数: %s",shapes.length);
     // const startCapturingButton = document.getElementById("start-capturing");
-    // const takeScreenshotsButton = document.getElementById("take-screenshots");
-    // const videoContainer = document.getElementById("capture-stream");
+    // const takeScreenshotsButton = document.getElementById("take-screenshots");const video = document.createElement("video");
+    //     video.autoplay = true;
+    //     video.srcObject = captureStream;
+    //     videoContainer.appendChild(video);
     // const canvasContainer = document.getElementById("screenshot");
     //
     // let captureStream = null;
@@ -154,7 +156,11 @@
     // });
     //
     // async function asyncCall() {
-    //   const videoTrack = captureStream.getVideoTracks()[0];
+    //   if(localStream.getVideoTracks().length == 2){
+    //     // 既に２つのトラックが含まれる場合は、2つめのトラック（ScreenShare）を削除
+    //     localStream.removeTrack(localStream.getVideoTracks()[1]);
+    //   }
+    //   var Track = captureStream.getVideoTracks()[0];
     //
     //   const imageCapture = new ImageCapture(videoTrack);
     //   const imageBitmap = await imageCapture.grabFrame();
@@ -165,11 +171,11 @@
     //   canvas.height = imageBitmap.height;
     //   canvas.getContext('2d').drawImage(imageBitmap, 0, 0);
     //   canvasContainer.appendChild(canvas);
-    //
-    //   //pngダウンロード
-    //   var up_image = canvas.toDataURL("image/png");
-    //   // console.log(up_image);
-    //
+
+      //pngダウンロード
+      //var up_image = canvas.toDataURL("image/png");
+      // console.log(up_image);
+
     //   socket.emit('from_main', {room:login_number ,up_image:up_image});
     // }
 
@@ -251,7 +257,7 @@
 
     window.onload = function() {
       popup.classList.add('is-show');
-      iframeLoad();
+      //iframeLoad();
     }
 
     document.getElementById('js-close-btn').onclick = function(){

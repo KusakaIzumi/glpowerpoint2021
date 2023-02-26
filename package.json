@@ -1,11 +1,13 @@
 {
+  "private": true,
   "name": "1210312_program",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "server.js",
   "dependencies": {
     "bufferutil": "^4.0.3",
     "express": "^4.17.1",
+    "peer": "^0.2.8",
     "socket.io": "^2.4.1",
     "utf-8-validate": "^5.0.4",
     "ws": "^7.4.4"

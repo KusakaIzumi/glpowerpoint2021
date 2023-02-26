@@ -8,11 +8,12 @@ const path = require('path');
 const server = http.createServer(requestListener);
 //cryptoモジュール
 const crypto = require('crypto');
+// socket.ioの読み込み
+const socketIO = require('socket.io');
 // httpサーバーを起動する。
 server.listen((process.env.PORT || 8080), function () {
   console.log((process.env.PORT || 8080) + 'でサーバーが起動しました');
 });
-
 
 /**
  * サーバーにリクエストがあった際に実行される関数
@@ -93,8 +94,6 @@ function readFileHandler(fileName, contentType, isBinary, response) {
   });
 }
 
-// socket.ioの読み込み
-const socketIO = require('socket.io');
 // サーバーでSocket.IOを使える状態にする
 const io = socketIO.listen(server);
 
@@ -176,6 +175,25 @@ io.sockets.on('connection', function (socket) {
     }
     var chart_cnt = [[a],[b],[c],[d]]
     io.to(chart_value.room).emit('Chart', chart_cnt);
+  });
+
+  //　webRTC
+  socket.on('rtc_connection',(action) =>{
+    action.from = socket.id;
+    let target = action.room;
+    if (target) {
+         console.log("message from: " + action.from + " to: room[" + target + "]");
+    } else {
+       console.log("message from: " + action.from);
+    }
+    let roomname = action.room;
+    if (roomname) {
+        console.log(socket.id + " room[" + roomname + "] broadcast: " + action.type);
+        io.to(action.room).emit('rtc_connection', action);
+    } else {
+        console.log(socket.id + " broadcast: " + action.type);
+        io.to(action.room).emit('rtc_connection', action);
+    }
   });
 });
 
