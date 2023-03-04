@@ -36,6 +36,8 @@ $(function(){
 
   socket.on('room_conect_message',(room) =>{
     console.log(room);
+    const slide = document.getElementById("slide");
+    socket.emit('iframe_url', {room:login_number, slide_number:slide.innerHTML});
   });
   ///////
 
@@ -76,6 +78,30 @@ $(function(){
       }
     }
   });
+
+  socket.on('rtc_connection',(action) =>{
+    let fromId = action.from;
+    console.log("action by " + fromId + ": " + action.type);
+    if(socket.id == fromId){ return; }
+
+    switch (action.type) {
+        case "call me":
+            break;
+        case "offer":
+            console.log(action.sdp);
+            onSdpText(action.sdp)
+            break;
+        case "answer":
+            console.log(action.sdp);
+            onSdpText(action.sdp);
+            break;
+        case "candidate":
+            break;
+        case "bye":
+            break;
+    }
+  });
+
 });
 
 function close(syurui){

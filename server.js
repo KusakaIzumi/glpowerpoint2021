@@ -195,6 +195,11 @@ io.sockets.on('connection', function (socket) {
         io.to(action.room).emit('rtc_connection', action);
     }
   });
+
+  socket.on('iframe_url',(iframeTarget) =>{
+    io.to(iframeTarget.room).emit('iframe_url', iframeTarget);
+  });
+
 });
 
 // トークンの作成///////////////////////////////////////////////////

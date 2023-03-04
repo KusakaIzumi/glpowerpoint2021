@@ -12,6 +12,7 @@ if (typeof(io) != 'undefined') {
 }
 
 var ipadress = 0;
+var slide_number = null;
 
 
 //自分自身の情報を入れる
@@ -113,8 +114,6 @@ function clickPosition(event) {
   var element = document.getElementById("circle");
   element.style.left = x + '%';
   element.style.top = y + '%';
-
-  console.log(x);
 }
 
 function ShowLength( str ) {
@@ -123,6 +122,7 @@ function ShowLength( str ) {
 }
 
 var login_number = 0;
+var key = 0;
 
 $(function(){
 
@@ -176,6 +176,33 @@ $(function(){
       document.getElementById("img1").src = up_image.up_image;
     });
 
+    socket.on('rtc_connection',(action) =>{
+      let fromId = action.from;
+      console.log("action by " + fromId + ": " + action.type);
+      if(socket.id == fromId){ return; }
+
+      switch (action.type) {
+          case "offer":
+              onSdpText(action.sdp)
+              break;
+          case "answer":
+              onSdpText(action.sdp);
+              break;
+      }
+    });
+
+    socket.on('iframe_url',(iframeTarget) =>{
+      const slide = document.getElementById("iframeTarget");
+      if(!slide_number){
+        slide_number = iframeTarget.slide_number
+        var start =  slide_number.lastIndexOf("width");
+        var end =  slide_number.indexOf(">");
+        var result =  slide_number.slice(0, start) +  slide_number.slice(end - 1);
+        slide.innerHTML = result;
+        console.log(result);
+      }
+    });
+
 });
 
 function like (type) {
@@ -185,13 +212,11 @@ function like (type) {
 }
 
 function OnSmileButton(){
-    console.log("aiueo");
     var input = document.getElementById("input_msg")
     input.value += document.getElementById("smileButton").value;
 }
 
 function OnSakuraButton(){
-    console.log("aiueo");
     var input = document.getElementById("input_msg")
     input.value += document.getElementById("sakuraButton").value;
 }

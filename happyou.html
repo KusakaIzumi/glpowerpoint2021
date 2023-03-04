@@ -12,8 +12,11 @@
      <script src="/socket.io/socket.io.js"></script>
      <script src="./js/comment.js"></script>
      <script src="./js/index.js"></script>
-     <script src="./js/index_1.js"></script>
+     <!-- <script src="./js/index_1.js"></script> -->
      <script src="./js/index_2.js"></script>
+     <script src="./js/sakura.js"></script>
+     <!-- <script src="./js/water.js"></script> -->
+     <script src="./js/waterLender.js"></script>
      <script src="./js/sakura.js"></script>
      <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
      <link href = "./css/base.css" rel="stylesheet">
@@ -83,7 +86,7 @@
       <canvas id="canvas_back"></canvas>
       <div class="stage" id="stage"></div>
     </div> -->
-    <div class="flower">
+    <div class="flower" id="addFlower">
       <canvas id="canvas_1"></canvas>
       <canvas id="canvas_2"></canvas>
       <canvas id="canvas_3"></canvas>
@@ -109,15 +112,15 @@
     <p id="slide">
     </p>
 
-    <div class="results">
+    <!-- <div class="results">
       <div id="capture-stream">
       </div>
       <div id="screenshot">
       </div>
     </div>
-    <!-- <button id="start-capturing" type="button"> -->
-      <!-- <i></i> start -->
-    </button>
+    <button id="start-capturing" type="button">
+      <i></i> start
+    </button> -->
 
     <!-- 投票機能 -->
     <div class="chart">
@@ -126,61 +129,13 @@
         <input type="button" value="Reset" onclick="reset()">
       </div>
     </div>
+  <div>
+    <!-- Local -->
+    <video id="local_video" autoplay style="width: 160px; height: 120px; border: 1px solid black; display:none;"></video>
+  </div>
 
-    <script>//画像ダウンロード
-
-    // getSlide = presentation.getSlides()[0];
-    // var shapes = getSlide.getShapes();
-    // console.log("シェイプの個数: %s",shapes.length);
-    // const startCapturingButton = document.getElementById("start-capturing");
-    // const takeScreenshotsButton = document.getElementById("take-screenshots");const video = document.createElement("video");
-    //     video.autoplay = true;
-    //     video.srcObject = captureStream;
-    //     videoContainer.appendChild(video);
-    // const canvasContainer = document.getElementById("screenshot");
-    //
-    // let captureStream = null;
-    // startCapturingButton.addEventListener('click', async () => {
-    //   captureStream = await navigator.mediaDevices.getDisplayMedia({audio: false, video: { width: 480, height: 270 }});
-    //   videoContainer.innerHTML = '';
-    //   if (captureStream) {
-    //     const video = document.createElement("video");
-    //     video.autoplay = true;
-    //     video.srcObject = captureStream;
-    //     videoContainer.appendChild(video);
-    //     var id_capture = setInterval(asyncCall, 5000);
-    //   }
-    //   captureStream.getTracks()[0].addEventListener('ended', () => {
-    //     clearInterval(id_capture);
-    //   });
-    // });
-    //
-    // async function asyncCall() {
-    //   if(localStream.getVideoTracks().length == 2){
-    //     // 既に２つのトラックが含まれる場合は、2つめのトラック（ScreenShare）を削除
-    //     localStream.removeTrack(localStream.getVideoTracks()[1]);
-    //   }
-    //   var Track = captureStream.getVideoTracks()[0];
-    //
-    //   const imageCapture = new ImageCapture(videoTrack);
-    //   const imageBitmap = await imageCapture.grabFrame();
-    //
-    //   canvasContainer.innerHTML = '';
-    //   const canvas = document.createElement("canvas");
-    //   canvas.width = imageBitmap.width;
-    //   canvas.height = imageBitmap.height;
-    //   canvas.getContext('2d').drawImage(imageBitmap, 0, 0);
-    //   canvasContainer.appendChild(canvas);
-
-      //pngダウンロード
-      //var up_image = canvas.toDataURL("image/png");
-      // console.log(up_image);
-
-    //   socket.emit('from_main', {room:login_number ,up_image:up_image});
-    // }
-
-    //吹き出しの表示時間を延長（吹き出しクリック時に）
-
+  <!-- <script src="./js/webRtc.js"></script> -->
+    <script>
     timer = 10000
 
     document.getElementById("fukidashi_1").onclick = function() {
