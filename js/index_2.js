@@ -5,6 +5,7 @@ var max_acount = 1;
 var timer_index_2 = 0;
 var url = null;
 var addFlowerIndex = 0;
+var allPushCount = 0;
 
 window.addEventListener('DOMContentLoaded', flower);
 
@@ -39,6 +40,7 @@ function flower() {
       // }
 
       ac_count++;
+      allPushCount++;
 
       if(cnt >= 1){
         console.log(max_acount);
@@ -53,9 +55,11 @@ function flower() {
           clearInterval(timer_index_2);
           timer_index_2 = setInterval(event, 20000);
           flower_init(); //オブジェクトの配置
-        }else if(ac_count % 2 == 0 && addFlowerIndex != 20){
-         console.log("ac_count:" + ac_count);
-           if(i == 7){
+        }
+        if(allPushCount % 10 == 0 && addFlowerIndex != 20){
+          ++allPushCount;
+          console.log("ac_count:" + ac_count);
+          if(addFlowerIndex == 0){
             ++i;
             var addCanvas = document.createElement('canvas');
             addCanvas.class = "eventFlower";
@@ -66,7 +70,7 @@ function flower() {
             max_acount += 2;
             cnt = 1;
             flowers_init(); //オブジェクトの配置
-          }else if(i > 7){
+          }else{
             flowers_init();
           }
         }
