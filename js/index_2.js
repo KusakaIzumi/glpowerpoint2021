@@ -56,24 +56,24 @@ function flower() {
           timer_index_2 = setInterval(event, 20000);
           flower_init(); //オブジェクトの配置
         }
-        if(allPushCount % 10 == 0 && addFlowerIndex != 20){
-          ++allPushCount;
-          console.log("ac_count:" + ac_count);
-          if(addFlowerIndex == 0){
-            ++i;
-            var addCanvas = document.createElement('canvas');
-            addCanvas.class = "eventFlower";
-            addCanvas.id = "canvas_addFlower";
-            addCanvas.style.bottom =  0 + '%';
-            addCanvas.style.left = 0 + '%';
-            document.getElementById('addFlower').appendChild(addCanvas);
-            max_acount += 2;
-            cnt = 1;
-            flowers_init(); //オブジェクトの配置
-          }else{
-            flowers_init();
-          }
-        }
+        // if(allPushCount % 10 == 0 && addFlowerIndex != 20){
+        //   ++allPushCount;
+        //   console.log("ac_count:" + ac_count);
+        //   if(addFlowerIndex == 0){
+        //     ++i;
+        //     var addCanvas = document.createElement('canvas');
+        //     addCanvas.class = "eventFlower";
+        //     addCanvas.id = "canvas_addFlower";
+        //     addCanvas.style.bottom =  0 + '%';
+        //     addCanvas.style.left = 0 + '%';
+        //     document.getElementById('addFlower').appendChild(addCanvas);
+        //     max_acount += 2;
+        //     cnt = 1;
+        //     flowers_init(); //オブジェクトの配置
+        //   }else{
+        //     flowers_init();
+        //   }
+        // }
       }
     });
 }
@@ -205,7 +205,8 @@ function flowers_init() {
     // new THREE.HemisphereLight(空の色, 地の色, 光の強さ)
     const light = new THREE.HemisphereLight(0x888888, 0x0000F, 2.0);
     flowerScene.add(light);  // メッシュの作成と追加
-    const grid   = new THREE.GridHelper(10, 5);
+    const grid   = new THREE.GridHelper(20, 20);
+    flowerScene.add(grid);
   }
 
   //glTFの読み込み
@@ -248,9 +249,9 @@ function flowers_init() {
 
       var x = 0;
       if(Math.floor( Math.random() * (1 + 1 - 0)) == 0){
-        x = Math.floor( Math.random() * (2 + 1 - 0) * 0.5 + 9);
+        x = Math.floor( Math.random() * (1.5 + 1 - 0) * 0.5 + 9);
       }else{
-        x = Math.floor( Math.random() * (2 + 1 - 0) * 0.5 + -9);
+        x = Math.floor( Math.random() * (1.5 + 1 - 0) * 0.5 + -9);
       }
       var y = Math.floor( Math.random() * (7 + 1 - 0)) * 2 - 7;
       var z = Math.floor( Math.random() * (6 + 1 - 2)) * 0.5;
@@ -258,7 +259,7 @@ function flowers_init() {
       //obj.position.set(x, y, -20);
       //obj.position.set(9, 0, 1);
       console.log("x:" +  x + "y:" + y + "z:" + z );
-      obj.scale.set(0.5,0.5,0.5);
+      obj.scale.set(0.4,0.4,0.4);
       obj.rotation.set(Math.PI/2,-Math.PI, 0);
       flowerGroup.add(obj);
       flowerObj = obj;
