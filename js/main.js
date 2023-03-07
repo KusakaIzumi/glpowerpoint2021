@@ -197,7 +197,7 @@ $(function(){
         slide_number = iframeTarget.slide_number
         var start =  slide_number.lastIndexOf("width");
         var end =  slide_number.indexOf(">");
-        var result =  slide_number.slice(0, start) +  slide_number.slice(end - 1);
+        var result =  slide_number.slice(0, start) +  slide_number.slice(end);
         slide.innerHTML = result;
         console.log(result);
       }
