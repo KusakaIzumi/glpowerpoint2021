@@ -56,24 +56,24 @@ function flower() {
           timer_index_2 = setInterval(event, 20000);
           flower_init(); //オブジェクトの配置
         }
-        // if(allPushCount % 10 == 0 && addFlowerIndex != 20){
-        //   ++allPushCount;
-        //   console.log("ac_count:" + ac_count);
-        //   if(addFlowerIndex == 0){
-        //     ++i;
-        //     var addCanvas = document.createElement('canvas');
-        //     addCanvas.class = "eventFlower";
-        //     addCanvas.id = "canvas_addFlower";
-        //     addCanvas.style.bottom =  0 + '%';
-        //     addCanvas.style.left = 0 + '%';
-        //     document.getElementById('addFlower').appendChild(addCanvas);
-        //     max_acount += 2;
-        //     cnt = 1;
-        //     flowers_init(); //オブジェクトの配置
-        //   }else{
-        //     flowers_init();
-        //   }
-        // }
+        if(allPushCount % 10 == 0 && addFlowerIndex != 20){
+          ++allPushCount;
+          console.log("ac_count:" + ac_count);
+          if(addFlowerIndex == 0){
+            ++i;
+            var addCanvas = document.createElement('canvas');
+            addCanvas.class = "eventFlower";
+            addCanvas.id = "canvas_addFlower";
+            addCanvas.style.bottom =  0 + '%';
+            addCanvas.style.left = 0 + '%';
+            document.getElementById('addFlower').appendChild(addCanvas);
+            max_acount += 2;
+            cnt = 1;
+            flowers_init(); //オブジェクトの配置
+          }else{
+            flowers_init();
+          }
+        }
       }
     });
 }
@@ -105,7 +105,7 @@ function flower_init() {
   camera.rotation.x = -0.6;
 
   // メッシュの作成と追加
-  const grid   = new THREE.GridHelper(10, 10);
+  //const grid   = new THREE.GridHelper(10, 10);
 
   //glTFの読み込み
 
@@ -205,8 +205,8 @@ function flowers_init() {
     // new THREE.HemisphereLight(空の色, 地の色, 光の強さ)
     const light = new THREE.HemisphereLight(0x888888, 0x0000F, 2.0);
     flowerScene.add(light);  // メッシュの作成と追加
-    const grid   = new THREE.GridHelper(20, 20);
-    flowerScene.add(grid);
+    //const grid   = new THREE.GridHelper(20, 20);
+    //flowerScene.add(grid);
   }
 
   //glTFの読み込み
@@ -216,7 +216,7 @@ function flowers_init() {
   let mixer;
   if ( flowerGroup == null ) {
     flowerGroup = new THREE.Object3D();
-    flowerScene .add( flowerGroup );
+    flowerScene.add( flowerGroup );
   }
 
   gltfLoader.load('./glb/hana_update.glb',function(data){
@@ -284,4 +284,27 @@ function flowers_init() {
   };
 
   animation();
+}
+
+// Cubeを古い順に削除する関数
+function removeCube(){
+  if(!flowerScene){ return; }
+
+	console.log("children:" + flowerScene.children.length);
+
+	var total = flowerScene.children.length;
+	for(var i=0; i<total; i++){
+		var obj = flowerScene.children[i];
+		if(obj.type == "Object3D"){
+      console.log(obj);
+      flowerScene.remove(obj);
+      //obj.material.dispose();
+      //obj.geometry.dispose();
+      //obj.texture.dispose();
+      addFlowerIndex = 0;
+      flowerGroup.remove;
+		}
+	}
+
+  return;
 }

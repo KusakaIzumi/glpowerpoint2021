@@ -420,6 +420,13 @@ iframe{
   z-index: 5000;
 }
 
+#reset{
+  position:fixed;
+  right: 0;
+  bottom: 0;
+  z-index: 5000;
+}
+
 #addTrack{
   position:fixed;
   right: 20;
